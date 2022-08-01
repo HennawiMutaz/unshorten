@@ -23,7 +23,7 @@ app.get('/expand', (req, res) => {
     (err, response, body) => {
         if (err) {
             console.log(err);
-            res.send('ERROR')
+            res.send('ERROR');
         } else {
             res.send(response.request.href);
         }
@@ -31,6 +31,10 @@ app.get('/expand', (req, res) => {
     );
 
 });
+
+app.get('*', function(req, res){ //* The 404 Route 
+    res.status(404).send("Sorry, can't find that");
+  });
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');

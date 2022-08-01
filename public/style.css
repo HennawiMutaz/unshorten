@@ -5,15 +5,29 @@
 html, body{
     height: 100%;
 }
+
+footer {
+    position: absolute;
+    bottom: 15px;
+}
+
+
 body{
-    background-color: rgb(239, 131, 84);
+    background-color: #B6FFCE;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#title {
+    position: relative;
+    bottom: 50px;
 }
 
 .container{
-    width: 300px;
+    min-width: 300px;
     padding: 3em;
     background-color: rgba(255, 255, 255, 0.3);
 }
@@ -25,10 +39,16 @@ input{
     flex-grow: 1;
 }
 button{
-    background-color: rgb(233, 95, 35);
+    background-color: #18978F;
     color: white;
     text-transform: uppercase;
+    cursor: pointer;
 }
+
+button:hover {
+    background-color: #363e3e;
+}
+
 input, button{
     padding: 0 1em;
     display: block;
@@ -37,7 +57,7 @@ input, button{
 }
 
 #result{
-    color: white;
+    color: #000;
     word-break: break-all;
     font-size: 1.2em;
     text-align: center;

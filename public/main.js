@@ -1,17 +1,23 @@
-const input = document.querySelector('#input')
-const expandBtn = document.querySelector('#expand-btn')
-const result = document.querySelector('#result')
+const input = document.querySelector('#input');
+const btn = document.querySelector('#expand-btn');
+const res = document.querySelector('#result');
 
-expandBtn.addEventListener('click', () => {
-    result.innerText = 'Loading ...'
+
+
+btn.addEventListener('click', () => {
+    res.innerText = 'Loading ...';
+    if (input.value == '') {
+        res.innerText = 'Please enter valid URL.';
+        return;
+    }
     fetch(`/expand?shortUrl=${input.value}`)
         .then(res => res.text())
         .then(text => {
-            result.innerText = text
-            result.setAttribute("href", text)
+            res.innerText = text;
+            text == 'ERROR' ? res.setAttribute("href", '')  : res.setAttribute("href", text);
         })
         .catch(err => {
-            console.log(err)
-            result.innerText = 'Error'
+            console.log(err);
+            res.innerText = 'Error';
         })
 })
